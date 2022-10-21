@@ -1,1 +1,25 @@
+# ?????
+server:
+  port: 8080
 
+# ?????
+datasource:
+  url: localhost:3306/springboot
+
+spring:
+  datasource: # ?????
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://${datasource.url}?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&autoReconnect=true&failOverReadOnly=false&maxReconnects=10
+    username: root
+    password: ganFeng
+    hikari:
+      maximum-pool-size: 10 # ??????
+      max-lifetime: 1770000
+
+mybatis:
+  # ???????????entity
+  type-aliases-package: com.example.gan.entity
+  configuration:
+    map-underscore-to-camel-case: true # ??????
+  mapper-locations: # mapper??????
+    - classpath:mapper/*.xml
